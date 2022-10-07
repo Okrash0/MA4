@@ -26,8 +26,8 @@ def fib_numba(n):
 def main():
 	n = 35
 	f = Person(N)
-	# print(f.get())
-	# f.set(7)
+	print(f.get())
+	f.set(7)
 	start_py = pc()
 
 	print(fib_py(n))
