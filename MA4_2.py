@@ -37,19 +37,26 @@ def eval_time(n, f):
 def main():
 	n_start = 30
 	n_stop = 45
-	f = Person(n)
-	print(f.get())
+	f = Person(20)
 
-	
+	print(f' --- Making plot with n= {n_start}-{n_stop} --- ')
 	n = [i for i in range(n_start,n_stop)]
-
 	time_py = []
+
 	time_numba = []
 	time_cpp = []
 
+	print('start py')
 	time_py = eval_time(n, fib_py)
+
+	print('py done')
+	print('start numba')
 	time_numba = eval_time(n, fib_numba)
+	print('numba done')
+
+	print('start c++')
 	time_cpp = eval_time(n, f.fib)
+	print('c++ done')
 
 	plt.plot(n,time_py)
 	plt.plot(n,time_numba)
@@ -60,10 +67,10 @@ def main():
 	plt.ylabel('Time [s]')
 	plt.title('Time to calculate fib with different methods')
 	
-	plt.savefig(r'C:\Users\Brukare\Universitet\Programmeringsteknik 2\MA4\MA4_Files\time_comp')
-	plt.show()
+	plt.savefig('plot')
 
 	n = 47	
+	print(f' --- Comparing numba to c++ with n= {n} ---')
 	start_numba = pc()
 
 	print(fib_numba(n))
