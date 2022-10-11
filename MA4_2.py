@@ -25,7 +25,7 @@ def fib_numba(n):
 
 def main():
 	n = 35
-	f = Person(N)
+	f = Person(n)
 	print(f.get())
 	f.set(7)
 	start_py = pc()
@@ -33,22 +33,23 @@ def main():
 	print(fib_py(n))
 
 	end_py = pc()
-	print(f"Process took {round(end_py-start_py, 2)} seconds")
+	print(f"Process took {round(end_py-start_py, 2)} seconds using fib py")
 	
-
-	start_py = pc()
-
-	print(fib_py(n))
-
-	end_py = pc()
-	print(f"Process took {round(end_py-start_py, 2)} seconds")
-
 	start_numba = pc()
 
 	print(fib_numba(n))
 
 	end_numba = pc()
-	print(f"Process took {round(end_numba-start_numba, 2)} seconds")
+	print(f"Process took {round(end_numba-start_numba, 2)} seconds using fib numba")
+
+	start_py = pc()
+
+	print(f.fib(n))
+
+	end_py = pc()
+	print(f"Process took {round(end_py-start_py, 2)} seconds using c++")
+
+
 
 if __name__ == '__main__':
 	main()
